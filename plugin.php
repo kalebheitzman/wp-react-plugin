@@ -40,7 +40,9 @@ if ( ! function_exists( 'wp_react_plugin_shortcode' ) ) {
 /**
  * WP React Plugin Scripts
  *
- * Register the ReactJS App Script thats needed for our plugin to work.
+ * Register the ReactJS App Script thats needed for our plugin to work. This
+ * includes the the react app and WordPress nonce needed to perform REST API
+ * calls.
  *
  * @since  1.0.0
  */
@@ -57,5 +59,13 @@ function wp_react_plugin_scripts() {
 		true
 	);
 
+	wp_localize_script(
+		'wpreactplugin-script',
+		'wpApiSettings',
+		array(
+			'root' => esc_url_raw( rest_url() ),
+			'nonce' => wp_create_nonce( 'wp_rest' ),
+		)
+	);
 }
 add_action( 'wp_enqueue_scripts', 'wp_react_plugin_scripts' );

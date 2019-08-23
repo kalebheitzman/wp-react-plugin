@@ -10,6 +10,8 @@ const Counter = () => {
 			{(context) => {
 				return(
 					<Fragment>
+						<h3>Counter on Context</h3>
+						<p><small><em>Using React Context to manage counter state.</em></small></p>
 						<p>Current Count: {context.state.count}</p>
 						<p>
 							<button

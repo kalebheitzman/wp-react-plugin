@@ -4,7 +4,7 @@ import MyContext from './Context'
 class MyProvider extends Component {
 
 	state = {
-		count: 0
+		count: 0,
 	}
 
 	render() {
@@ -12,12 +12,18 @@ class MyProvider extends Component {
 		return(
 			<MyContext.Provider
 				value={{
-					state: this.state,
+					state: this.state, // state stored in context
+					api: wpApiSettings.root, // api url for the WordPress rest api
+					nonce: wpApiSettings.nonce, // nonce for authenticated requests
+
+					// increase the counter
 					increaseCount: () => {
 						this.setState({
 							count: this.state.count+1
 						})
 					},
+
+					// decrease the counter
 					decreaseCount: () => {
 						this.setState({
 							count: this.state.count === 0 ? 0 : this.state.count-1

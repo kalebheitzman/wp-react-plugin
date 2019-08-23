@@ -6,11 +6,12 @@
   "scripts": {
     "dev": "cross-env BABEL_ENV=default webpack --mode=development --watch",
     "build": "cross-env BABEL_ENV=default NODE_ENV=production webpack --mode=production -p"
-	},
-	"browserslist": "> 0.25%, not dead",
+  },
+  "browserslist": "> 0.25%, not dead",
   "devDependencies": {
     "@babel/cli": "^7.5.5",
     "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "babel-loader": "^8.0.6",
     "babel-plugin-transform-class-properties": "^6.24.1",
